@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        function check() {
+            let users = "[[${users}]]";
+            console.log(users , "트루냐 펄스냐?");
+            let title = $("#title").val();
+            let content = $("#content").val();
+
+            if(users == "true"){
+                alert("로그인을 해야합니다");
+                window.location.replace("/user/login")
+                return false;
+            }
+            if (title === "") {
+                alert("제목을 입력하세요");
+                return false;
+            }
+            if (content === "") {
+                alert("내용을 입력해주세요.")
+                return false;
+            }
+            return true;
+        }
+
+    </script>
+
+    <style>
+        .title{
+            width: 250px;
+        }
+        .content{
+            width: 250px;
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+<div class="ui-icon-info">
+    <span th:if="${#authorization.expr('isAuthenticated()')}" class="info">
+        <h2 th:text="${#authentication.name}+'님 환영합니다.'"></h2>
+        <a href="/user/logout" th:href="@{/user/logout}">Logout</a>
+    </span>
+    <span th:unless="${#authorization.expr('isAuthenticated()')}">
+        <a href="/user/login" th:href="@{/user/login}">Login</a>
+    </span>
+</div>
+
+
+<form action="/board" method="post" onsubmit="return check()" th:object="${boardRequestDto}">
+    <div class="form-group">
+        제목 <input type="text" class="form-control title" name="title" th:field="*{title}" aria-describedby="emailHelp">
+        <small id="emailHelp1" class="form-text text-muted"></small>
+        <p th:if="${#fields.hasErrors('title')}"
+           th:errors="*{title}"></p>
+    </div>
+    <div class="form-group">
+        내용 <input type="text" class="form-control content" name="content" th:field="*{content}" aria-describedby="emailHelp">
+        <small id="emailHelp" class="form-text text-muted"></small>
+        <p th:if="${#fields.hasErrors('content')}"
+           th:errors="*{content}"></p>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>username</th>
+        <th>title</th>
+        <th>content</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="board : ${boards}">
+        <td th:text="${board.boardId}"></td>
+        <td th:text="${board.getUser().getUsername()}"></td>
+        <td>
+            <a th:href="@{'/board/detail/'+ ${board.boardId}}">
+                <span th:text="${board.title}"></span>
+            </a>
+        </td>
+        <td th:text="${board.content}"></td>
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>
