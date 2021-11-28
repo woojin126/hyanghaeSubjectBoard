@@ -83,4 +83,7 @@
 게시글 상세페이지 & 댓글목록 image
 ![details](https://user-images.githubusercontent.com/25544668/143733788-ad7e6cf9-4ab5-4c08-9e8e-50d3e8fdf81f.PNG)
 
+## entity 설계 구조
+ 
+![diagram](https://user-images.githubusercontent.com/25544668/143748008-3d789bc9-b667-41c0-8e04-bd921d87e8b6.PNG)
 
