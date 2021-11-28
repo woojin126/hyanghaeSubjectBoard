@@ -2,7 +2,25 @@
  + 간단한 CRUD와Oauth2 를 사용한 보드
  + CRUD를 활용한 스프링 JPA 프로젝트
  + 첫 개인 주특기 프로젝트
+# 스케쥴링
+2021/11/22 - 2021//11/27
+* 11/22: 프로젝트 기획/ API 설계/ Entity 설계
+* 11/23: 프로젝트 구현에있어 필요한 JPA 강의 일부 시청
+* 11/24: Security 를 사용한 회원가입,일반 로그인과, Google,KaKao Oauth2 Login 구현
+* 11/25: 로그인한 사용자 정보가 연관된 게시글 테이블 구현 ( 로그인, 회원가입 에서 발생하는 예외처리, 같은 아이디 회원, 비밀번호 불일치 등)
+* 11/26: 게시글 상세페이지에서 여러유저가 삭제, 수정 할 수있는 게시글 구현
+* 11/27: 전체적인 flow 테스트밑 에러, 테스트코드 적용
 
+# 개발환경
+* FRONT Language:HTML5, CSS{BootStrap}/ Javascript{jQuery 3.5.1}, Thymeleaf(Server Side Render)
+* BACK-END: Spring Web , Spring DATA JPA, Spring Security, JUNIT 5
+* DataBase: Mysql
+* Server: AWS EC2 , DB: Redis 배포 주소 http://15.164.233.249/
+* domain: 가비아 , 현재는 구동 x
+
+# 추후 계획
+* 페이징기능 추가
+* UI 꾸미기
 # Notice-Board
 * 스프링부트, JPA를 이용한 게시판 구현
 * 주요기능
