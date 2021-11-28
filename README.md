@@ -1,4 +1,7 @@
 # hyanghaeSubjectBoard
+ + 간단한 CRUD와Oauth2 를 사용한 보드
+ + CRUD를 활용한 스프링 JPA 프로젝트
+ + 첫 개인 주특기 프로젝트
 
 # Notice-Board
 * 스프링부트, JPA를 이용한 게시판 구현
